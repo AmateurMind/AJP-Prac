@@ -3,7 +3,7 @@ import html
 import streamlit.components.v1 as components
 import base64
 
-st.set_page_config(page_title="PIC Programs", layout="wide")
+st.set_page_config(page_title="AJP", layout="wide")
 
 # Hide the main area watermark and menu
 st.markdown("""

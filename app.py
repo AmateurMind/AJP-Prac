@@ -23,6 +23,7 @@ PIC_PROGRAMS = {
     source package right click java class
     and put code
 
+CODE:
 import java.awt.*;
 import java.awt.event.*;
 
@@ -113,7 +114,8 @@ public class MouseDemo extends Frame implements MouseListener {
 }
 
 """,
-"3marks": r"""
+"3GUI-MARKS-STUDENTS": r"""
+
 import javax.swing.JOptionPane;
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -163,6 +165,7 @@ JOptionPane.showMessageDialog(this,
     right clock source package add java class whose code is :
 
 
+CODE:
 package exp4;
 
 import java.sql.Connection;
@@ -240,6 +243,7 @@ public class Exp4 {
     
 
     "4MYSQL": r"""
+CODE:
 CREATE DATABASE test;
 USE test;
 
@@ -267,30 +271,32 @@ SELECT * FROM Players;
 """,
 
     "5Palindrome": r"""
-File → New Project
-→ Java with Ant
-→ Java Application
-→ Project Name: Exp5_RMI
-→ Finish
+    File → New Project
+    → Java with Ant
+    → Java Application
+    → Project Name: Exp5_RMI
+    → Finish
 
-Right Click Project Name
-→ New
-→ Java Interface
-→ Name: PalindromeChecker
-→ Finish
+    Right Click Project Name
+    → New
+    → Java Interface
+    → Name: PalindromeChecker
+    → Finish
 
+CODE:
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 public interface PalindromeChecker extends Remote {
 public boolean checkPalindrome(String s) throws RemoteException;
 }
 
-Right Click Project Name
-→ New
-→ Java Class
-→ Name: PalindromeServer
-→ Finish
+    Right Click Project Name
+    → New
+    → Java Class
+    → Name: PalindromeServer
+    → Finish
 
+CODE:
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.RemoteException;
@@ -323,12 +329,13 @@ System.out.println("exception"+e);
 }
 
 
-Right Click Project Name
-→ New
-→ Java Class
-→ Name: PalindromeClient
-→ Finish
+    Right Click Project Name
+    → New
+    → Java Class
+    → Name: PalindromeClient
+    → Finish
 
+CODE:
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -384,6 +391,7 @@ public class PalindromeClient {
     → Name: InetADRESS
     → Finish
 
+CODE:
 package InetADRESS;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -411,6 +419,7 @@ System.out.println(e);
     java with ant then java app
     right click on source package then servlet:
 
+CODE:
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -458,6 +467,7 @@ public class valid extends HttpServlet {
 
     """,
     "7index.html":r"""
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -487,6 +497,7 @@ public class valid extends HttpServlet {
     
     """,
     "7welcome.html":r"""
+CODE:
 <!DOCTYPE html>
 <html>
 <head>
@@ -508,6 +519,8 @@ Login Confirmed!!
     then 
     project name interface: Calculator
 
+CODE:
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 public interface Calculator extends Remote {
@@ -516,6 +529,8 @@ int subtract(int x, int y) throws RemoteException;
 }
 
     then new class CalculatorImpl
+
+CODE:
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -534,6 +549,8 @@ return x - y;
 }
 
     then new class CalculatorServer
+
+CODE:
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -555,6 +572,8 @@ System.err.println("CalculatorServer exception:");
 }
 
     then new class CalculatorClient
+
+CODE:
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -595,7 +614,8 @@ then run derver client
     server tomcat
     change index.html to index.jsp using properties
 
-code:
+CODE:
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Date"%>
 

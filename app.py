@@ -68,6 +68,11 @@ public class Ex1 extends Frame implements KeyListener {
 }
 """,
     "EXP2MOUSECLICK ": r"""
+    java with maven
+    souce java class
+
+CODE:
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -116,6 +121,12 @@ public class MouseDemo extends Frame implements MouseListener {
 """,
 "3GUI-MARKS-STUDENTS": r"""
 
+    new proj then java maven thhen new app
+    then source then JFRAME form
+    design panel then label and textfield
+
+CODE:
+
 import javax.swing.JOptionPane;
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -160,7 +171,7 @@ JOptionPane.showMessageDialog(this,
     "4JDBCNETBEANS": r"""
 
     mysql then code this
-    then netbeans file new proj java with maven java app
+    then netbeans file new proj java with ANT  java app
     add JAR in lib
     right clock source package add java class whose code is :
 
@@ -639,7 +650,164 @@ CODE:
     
     """,
     "10IP":r"""
-    LOL
+    new proj then java with ant java web java app then run the code
+    apache tomcat server add
+    edit index.html
+
+    CODE:
+
+    <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Servlet Login Example</title>
+</head>
+<body>
+    <h1>Welcome to Login App by Cookie</h1>
+    <a href="login.html">Login</a> |
+    <a href="LogoutServlet">Logout</a> |
+    <a href="ProfileServlet">Profile</a>
+</body>
+</html>
+
+    web pages new html
+    login.html
+    
+    CODE:
+<form action="LoginServlet" method="post">
+    Name: <input type="text" name="name"><br>
+    Password: <input type="password" name="password"><br>
+    <input type="submit" value="login">
+</form>
+
+    Step 4: Create link.html
+
+CODE:
+<a href="login.html">Login</a> |
+<a href="LogoutServlet">Logout</a> |
+<a href="ProfileServlet">Profile</a>
+<hr>
+
+    Create LoginServlet FROM source package
+
+CODE:
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class LoginServlet extends HttpServlet {
+
+    protected void doPost(HttpServletRequest request,
+                          HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        request.getRequestDispatcher("link.html")
+               .include(request, response);
+
+        String name = request.getParameter("name");
+        String password = request.getParameter("password");
+
+        if (password.equals("admin123")) {
+            out.print("You are successfully logged in!");
+            out.print("<br>Welcome, " + name);
+
+            Cookie ck = new Cookie("name", name);
+            response.addCookie(ck);
+        } else {
+            out.print("Sorry, username or password error!");
+            request.getRequestDispatcher("login.html")
+                   .include(request, response);
+        }
+
+        out.close();
+    }
+}
+
+    Step 6: Create LogoutServlet
+
+CODE:
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class LogoutServlet extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        request.getRequestDispatcher("link.html")
+               .include(request, response);
+
+        Cookie ck = new Cookie("name", "");
+        ck.setMaxAge(0);
+        response.addCookie(ck);
+
+        out.print("You are successfully logged out!");
+    }
+}
+
+    Step 7: Create ProfileServlet
+
+CODE:
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class ProfileServlet extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response)
+            throws ServletException, IOException {
+
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+
+        request.getRequestDispatcher("link.html")
+               .include(request, response);
+
+        Cookie[] ck = request.getCookies();
+
+        if (ck != null) {
+            String name = ck[0].getValue();
+
+            if (name != null && !name.equals("")) {
+                out.print("<b>Welcome to Profile</b>");
+                out.print("<br>Welcome, " + name);
+            }
+        } else {
+            out.print("Please login first");
+            request.getRequestDispatcher("login.html")
+                   .include(request, response);
+        }
+
+        out.close();
+    }
+}
+
+CREDS ARE 
+Name: Suhail
+Password: admin123
+
+    
     """,
 
 }
